@@ -1,6 +1,7 @@
 package com.liverkick.elven.activity;
 
 import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -16,11 +17,17 @@ public class LectureActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     public Lecture currentLecture;
     private LectureAdapter adapter;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture);
+
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         View v = getWindow().getDecorView().getRootView();
         Intent i = getIntent();
@@ -30,5 +37,14 @@ public class LectureActivity extends AppCompatActivity {
         WebView body = (WebView)findViewById(R.id.body);
         title.setText(currentLecture.getTitle());
         body.loadDataWithBaseURL(null, currentLecture.getBody(),"text/html", "UTF-8", null);
+
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("News");
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

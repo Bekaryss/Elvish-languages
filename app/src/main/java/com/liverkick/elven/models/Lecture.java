@@ -13,7 +13,6 @@ import android.os.Parcelable;
 
 @Entity(tableName = "lectures")
 public class Lecture implements Parcelable {
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     public int id;
@@ -35,8 +34,7 @@ public class Lecture implements Parcelable {
 
     public Lecture(){}
 
-    public Lecture(int _id, String _title, String _body, int _bookId){
-        this.id = _id;
+    public Lecture(String _title, String _body, int _bookId){
         this.title = _title;
         this.body = _body;
         this.bookId = _bookId;

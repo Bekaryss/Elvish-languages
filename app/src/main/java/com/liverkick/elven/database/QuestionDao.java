@@ -5,24 +5,24 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.liverkick.elven.models.Book;
+import com.liverkick.elven.models.Question;
 
 import java.util.List;
 
 /**
- * Created by bekarys on 15.11.17.
+ * Created by bekarys on 21.11.17.
  */
 @Dao
-public interface BookDao {
+public interface QuestionDao {
     @Insert
-    void insert(Book book);
+    void insert(Question question);
 
     @Delete
-    void delete(Book book);
+    void delete(Question question);
 
-    @Query("SELECT * FROM books")
-    List<Book> getAllPBooks();
+    @Query("SELECT * FROM questions")
+    List<Question> getAllQuestions();
 
-    @Query("DELETE FROM books")
+    @Query("DELETE FROM questions")
     void clearTable();
 }

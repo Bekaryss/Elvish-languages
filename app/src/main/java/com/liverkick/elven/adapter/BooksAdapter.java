@@ -8,9 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.liverkick.elven.R;
+import com.liverkick.elven.activity.BooksActivity;
 import com.liverkick.elven.activity.LecturesActivity;
 import com.liverkick.elven.models.Book;
 
@@ -41,6 +43,8 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
         holder.setPosition(position);
         holder.title.setText(booksList.get(position).getTitle());
         holder.description.setText(booksList.get(position).getDescription());
+        if(booksList.get(position).isDownload() == true)
+            holder.isDownload.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -50,13 +54,22 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView title, description;
+        public Button isDownload, viewBook;
         int position;
 
         public ViewHolder(View view, final Context event) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             description = (TextView) view.findViewById(R.id.description);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            isDownload = (Button) view.findViewById(R.id.download);
+            viewBook = (Button) view.findViewById(R.id.view);
+            isDownload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((BooksActivity)mContext).saveInDB(position);
+                }
+            });
+            viewBook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(event, LecturesActivity.class);

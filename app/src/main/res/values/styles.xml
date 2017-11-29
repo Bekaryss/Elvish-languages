@@ -1,11 +1,36 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+    </style>
+
+    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/primary_light</item>
+    </style>
+
+    <style name="MyCardViewStyle" parent="CardView">
+        <item name="cardBackgroundColor">#F5F5F6</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="cardElevation">2dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="PrimaryFlatButton" parent="Theme.AppCompat.DayNight">
+        <item name="android:buttonStyle">
+            @style/Widget.AppCompat.Button.Borderless.Colored
+        </item>
+        <item name="colorAccent">#FFAB40</item>
+    </style>
+
+    <style name="MyMenuCardViewStyle" parent="android:ThemeOverlay.Material.Dark">
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">2dp</item>
     </style>
 
 </resources>

@@ -17,11 +17,14 @@ import java.util.List;
 @Dao
 public interface LectureDao {
     @Insert
-    void inserAll(Lecture...lectures);
+    void insert(Lecture lecture);
 
     @Delete
     void delete(Lecture lecture);
 
     @Query("SELECT * FROM lectures")
     List<Lecture> getAllLectures();
+
+    @Query("DELETE FROM lectures")
+    void clearTable();
 }

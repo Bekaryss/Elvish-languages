@@ -15,12 +15,13 @@ import com.liverkick.elven.R;
 import com.liverkick.elven.helper.QuizHelper;
 import com.liverkick.elven.models.Question;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class QuizActivity extends AppCompatActivity {
 
-    List<Question> quesList;
+    public List<Question> quesList;
     int score = 0;
     int qid = 0;
 
@@ -32,9 +33,13 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        quesList = new ArrayList<>();
+        QuizHelper db = new QuizHelper(this);
+        db.getAllQuestions();
 
-        QuizHelper db = new QuizHelper(this);  // my question bank class
-        quesList = db.getAllQuestions();  // this will fetch all quetonall questions
+    }
+
+    public void InitQuestion(){
         currentQ = quesList.get(qid); // the current question
 
         txtQuestion = (TextView) findViewById(R.id.txtQuestion);
@@ -86,6 +91,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+
     public void getAnswer(String AnswerString) {
         if (currentQ.getANSWER().equals(AnswerString)) {
 
@@ -108,7 +114,7 @@ public class QuizActivity extends AppCompatActivity {
 //            startActivity(intent);
 //            finish();
 //        }
-        if (qid < 20) {
+        if (qid < quesList.size()) {
 
             // if questions are not over then do this
             currentQ = quesList.get(qid);

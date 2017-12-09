@@ -1,0 +1,38 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp">
+    <TextView
+        android:id="@+id/worden"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Title En"
+        android:textSize="20dp"
+        android:textColor="@color/primary_text" />
+    <TextView
+        android:id="@+id/wordru"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Title Ru"
+        android:textSize="20dp"
+        android:textColor="@color/primary_text" />
+    <TextView
+        android:id="@+id/wordel"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Title El"
+        android:textSize="20dp"
+        android:textColor="@color/primary_text" />
+
+
+</LinearLayout>

@@ -27,6 +27,12 @@
         <activity android:name=".activity.DownloadActivity" />
         <activity android:name=".activity.QuizActivity" />
         <activity android:name=".activity.ResultActivity" />
+        <activity android:name=".activity.DictionaryActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.liverkick.elven.activity;
 
 import android.app.ActionBar;
 import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -78,6 +80,11 @@ public class BooksActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         finish();
         return true;
+    }
+
+    public void goToD(View view){
+        Intent Intent = new Intent(view.getContext(), DownloadActivity.class);
+        view.getContext().startActivity(Intent);
     }
 
     public void GetDataFirebase(final List<Book> curDbBooks) {

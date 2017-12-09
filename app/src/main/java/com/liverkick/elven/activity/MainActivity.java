@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
          view.getContext().startActivity(Intent);
     }
     public void goToD(View view){
-        Intent Intent = new Intent(view.getContext(), DownloadActivity.class);
+        Intent Intent = new Intent(view.getContext(), DictionaryActivity.class);
         view.getContext().startActivity(Intent);
     }
     public void goToQ(View view){
